@@ -20,6 +20,7 @@ public class PlayerDetector : MonoBehaviour
     private float threatLevelIncreaseTimer = 0;
     private float gridRefreshTimer = 0;
     private float targetChangeTimer = 0;
+    private float respawnTimer = 0;
 
     public float speed = 2;
 
@@ -36,7 +37,7 @@ public class PlayerDetector : MonoBehaviour
 
         controller = GetComponent<CharacterController>();
 
-
+        
         seeker.StartPath(transform.position, targetPosition, OnPathComplete);
     }
 
@@ -50,7 +51,7 @@ public class PlayerDetector : MonoBehaviour
         }
     }
 
-    public void Update () {
+    public void FixedUpdate () {
         if (path == null) {
             // We have no path to follow yet, so don't do anything
             return;
@@ -97,6 +98,17 @@ public class PlayerDetector : MonoBehaviour
         threatLevelIncreaseTimer += Time.deltaTime;
         gridRefreshTimer += Time.deltaTime;
         targetChangeTimer += Time.deltaTime;
+        
+        respawnTimer += Time.deltaTime;
+        if(respawnTimer >= 30f)
+        {
+            var data = AstarPath.active.data;
+            //respawn the agent somewhere on the grid within a certain distance of the player
+            var pos = player.transform.position + (Vector3)((100 - threatLevel) * Random.insideUnitCircle);
+            var node = data.gridGraph.GetNearest(pos, NNConstraint.None).node;
+            transform.position = (Vector3)node.position;
+            respawnTimer = 0f;
+        }
         if(targetChangeTimer >= 5f)
         {
             targetPosition = player.transform.position + (Vector3)((100 - threatLevel) * Random.insideUnitCircle);
@@ -111,7 +123,10 @@ public class PlayerDetector : MonoBehaviour
         }
         if(gridRefreshTimer >= 4f)
         {
-            AstarPath.active.Scan();
+              AstarPath.active.Scan();
+           // Bounds bounds = GetComponent<Collider>().bounds;
+           // AstarPath.active.UpdateGraphs(bounds);
+           //Debug.Log("updated graph");
             gridRefreshTimer = 0f;
         }
 
