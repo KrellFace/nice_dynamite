@@ -9,6 +9,7 @@ public enum enum_GameFlowState
     READY_TO_DECEND,
     INITIAL_HUNT,
     PERSUED,
+    READY_TO_LEAVE,
     COMPLETED
 
 }

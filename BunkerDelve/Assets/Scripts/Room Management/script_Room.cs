@@ -71,7 +71,7 @@ public class script_Room : MonoBehaviour
 
     private void OnTriggerExit(Collider other) {
         if(other.gameObject.CompareTag("Player")){
-            Debug.Log("Player Exited");
+            //Debug.Log("Player Exited");
             enum_Directions leavingDir;
             Vector3 globalRoomPos = this.transform.position;
             Vector3 playerPos = other.gameObject.transform.position;

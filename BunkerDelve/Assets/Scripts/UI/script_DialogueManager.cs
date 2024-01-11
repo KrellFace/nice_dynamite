@@ -60,10 +60,12 @@ public class script_DialogueManager : MonoBehaviour
     }
 
     public void SpawnPopUp(string text){
-    
-        GameObject obj = Instantiate(dialoguePrefab, uiCanvas.transform);
-        script_DialoguePopup popup = obj.GetComponent<script_DialoguePopup>();
-        popup.Bind(text, this);
-        dialogueSpawned=true;
+        if(!dialogueSpawned){
+                
+            GameObject obj = Instantiate(dialoguePrefab, uiCanvas.transform);
+            script_DialoguePopup popup = obj.GetComponent<script_DialoguePopup>();
+            popup.Bind(text, this);
+            dialogueSpawned=true;
+        }
     }
 }

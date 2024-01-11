@@ -162,9 +162,8 @@ public class script_PlayerController : MonoBehaviour
                 //playerLookingAtChecker.GetLookedAtObject().GetComponent<script_npc>().TriggerDialogue();
             }
             else if (playerLookingAtChecker.GetLookingAt() == PlayerLookingAt.GOAL_OBJECT){
-                //script_GoalObject gObj = playerLookingAtChecker.GetLookedAtObject().GetComponent<script_GoalObject>();
-                //goalObjectManager.AddToCollected(gObj);
-                //collectionLog.CollectGoalObject(gObj.GetGoalObjectType());
+                script_GoalObject gObj = playerLookingAtChecker.GetLookedAtObject().GetComponent<script_GoalObject>();
+                gObj.Collect();
             }
         }
     }

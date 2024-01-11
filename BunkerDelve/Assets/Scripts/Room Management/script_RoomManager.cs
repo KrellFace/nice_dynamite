@@ -6,6 +6,7 @@ public class script_RoomManager : MonoBehaviour
 {
     //GAME OBJECTS
     script_RoomDressingManager roomDressingManager;
+    script_GameFlowManager gameFlowManager;
     //DYNAMIC VARIALBES
     private int[] currPlayerLoc = new int[]{0,0};
     
@@ -19,11 +20,15 @@ public class script_RoomManager : MonoBehaviour
     private bool initialRoomsSpawned = false;
     private float initialSpawnDelay = 0f;
 
-    public bool readyToSpawnGoal;
+    private int roomsVisited = 0;
+    private bool persuitStarted = false;
+
+    private bool readyToSpawnGoal;
 
 
     private void Start() {
         roomDressingManager = FindObjectOfType<script_RoomDressingManager>();
+        gameFlowManager = FindObjectOfType<script_GameFlowManager>();
     }
 
     private void Update() {
@@ -38,6 +43,15 @@ public class script_RoomManager : MonoBehaviour
     }
     
     public void RoomTransition(enum_Directions direction, script_Room exitedRoom){
+        roomsVisited+=1;
+        if(roomsVisited>10 && !persuitStarted){
+            gameFlowManager.ChangeState(enum_GameFlowState.PERSUED);
+            
+            persuitStarted=true;
+        }
+
+
+
         script_Room movedInTo = null;
         int[] movedIntoLocMod = new int[]{0,0};
         if(direction==enum_Directions.NORTH){
@@ -164,5 +178,9 @@ public class script_RoomManager : MonoBehaviour
             spawnedRooms.Remove(r);
             Destroy(r.gameObject);
         }
+    }
+
+    public void SetReadyToSpawnGoal(){
+        readyToSpawnGoal = true;
     }
 }
