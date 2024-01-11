@@ -65,7 +65,6 @@ public class script_GameFlowManager : MonoBehaviour
             trapDoorSpotLight.SetActive(false);
             dialogueManager.SpawnPopUp("Lets find some photos");
             Debug.Log("Entered dungeon");
-            gameEndedUI.ActivateEndScreen(true);
         }
         else if(currState == enum_GameFlowState.INITIAL_HUNT&&flowState ==enum_GameFlowState.PERSUED){
             currState = enum_GameFlowState.PERSUED;
