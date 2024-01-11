@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class script_AudioManager : MonoBehaviour
 {
+
+    public AudioSource[] stepSounds;
+    public AudioSource glowStickCrack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +21,14 @@ public class script_AudioManager : MonoBehaviour
     }
 
     public void PlayStep(){
-        
+        stepSounds[Random.Range(0, stepSounds.Length)].Play(0);
     }
 
     public void PlayJumpAudio(){
         
+    }
+
+    public void PlayGlowstickCrack(){
+        glowStickCrack.Play(0);
     }
 }

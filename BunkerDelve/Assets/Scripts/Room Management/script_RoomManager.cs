@@ -12,11 +12,16 @@ public class script_RoomManager : MonoBehaviour
     //FIXED VARIABLES
     public GameObject[] roomPrefabs;
     public script_Room startRoom;
+    public GameObject goalRoom;
 
     //DYNAMIC VARIABLES
     private List<script_Room> spawnedRooms = new List<script_Room>();
     private bool initialRoomsSpawned = false;
     private float initialSpawnDelay = 0f;
+
+    public bool readyToSpawnGoal;
+
+
     private void Start() {
         roomDressingManager = FindObjectOfType<script_RoomDressingManager>();
     }
@@ -89,7 +94,13 @@ public class script_RoomManager : MonoBehaviour
         Vector3 roomPos = room.transform.position;
         if(exitBlocked!=enum_Directions.NORTH&&!northAlreadySpawned){
             Vector3 spawnPos = new Vector3(roomPos.x, roomPos.y, roomPos.z+15f);
-            script_Room spawnedRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)],spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            script_Room spawnedRoom;
+            if(!readyToSpawnGoal){
+                spawnedRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)],spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            }
+            else{
+                spawnedRoom = Instantiate(goalRoom,spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            }
             spawnedRoom.DressRoom(enum_Directions.SOUTH,roomDressingManager);
             spawnedRoom.SetLoc(new int[]{roomLoc[0], roomLoc[1]+1});
             spawnedRooms.Add(spawnedRoom);
@@ -97,7 +108,13 @@ public class script_RoomManager : MonoBehaviour
         }
         if(exitBlocked!=enum_Directions.SOUTH&&!southAlreadySpawned){
             Vector3 spawnPos = new Vector3(roomPos.x, roomPos.y, roomPos.z-15f);
-            script_Room spawnedRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)],spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            script_Room spawnedRoom;
+            if(!readyToSpawnGoal){
+                spawnedRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)],spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            }
+            else{
+                spawnedRoom = Instantiate(goalRoom,spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            }
             spawnedRoom.DressRoom(enum_Directions.NORTH,roomDressingManager);
             spawnedRoom.SetLoc(new int[]{roomLoc[0], roomLoc[1]-1});
             spawnedRooms.Add(spawnedRoom);
@@ -105,7 +122,13 @@ public class script_RoomManager : MonoBehaviour
         }
         if(exitBlocked!=enum_Directions.EAST&&!eastAlreadySpawned){
             Vector3 spawnPos = new Vector3(roomPos.x-15f, roomPos.y, roomPos.z);
-            script_Room spawnedRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)],spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            script_Room spawnedRoom;
+            if(!readyToSpawnGoal){
+                spawnedRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)],spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            }
+            else{
+                spawnedRoom = Instantiate(goalRoom,spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            }
             spawnedRoom.DressRoom(enum_Directions.WEST,roomDressingManager);
             spawnedRoom.SetLoc(new int[]{roomLoc[0]-1, roomLoc[1]});
             spawnedRooms.Add(spawnedRoom);
@@ -113,7 +136,13 @@ public class script_RoomManager : MonoBehaviour
         }
         if(exitBlocked!=enum_Directions.WEST&&!westAlreadySpawned){
             Vector3 spawnPos = new Vector3(roomPos.x+15f, roomPos.y, roomPos.z);
-            script_Room spawnedRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)],spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            script_Room spawnedRoom;
+            if(!readyToSpawnGoal){
+                spawnedRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)],spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            }
+            else{
+                spawnedRoom = Instantiate(goalRoom,spawnPos,room.transform.rotation, this.transform).GetComponent<script_Room>();
+            }
             spawnedRoom.DressRoom(enum_Directions.EAST,roomDressingManager);
             spawnedRoom.SetLoc(new int[]{roomLoc[0]+1, roomLoc[1]});
             spawnedRooms.Add(spawnedRoom);

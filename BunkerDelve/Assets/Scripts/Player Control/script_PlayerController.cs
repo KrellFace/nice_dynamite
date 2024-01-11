@@ -184,8 +184,9 @@ public class script_PlayerController : MonoBehaviour
     private void ThrowGlowstick(){
         GameObject glowstick = Instantiate(glowstickPrefab,playerHands.transform.position, this.transform.rotation);
         Rigidbody rgb = glowstick.GetComponent<Rigidbody>();
-        Debug.Log(this.transform.forward);
+        //Debug.Log(this.transform.forward);
         rgb.AddForce(this.transform.forward*glowStickThrowForce);
+        audioManager.PlayGlowstickCrack();
 
     }
 
