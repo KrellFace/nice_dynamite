@@ -111,7 +111,10 @@ public class PlayerDetector : MonoBehaviour
         }
         if(gridRefreshTimer >= 4f)
         {
-            AstarPath.active.Scan();
+              AstarPath.active.Scan();
+           // Bounds bounds = GetComponent<Collider>().bounds;
+           // AstarPath.active.UpdateGraphs(bounds);
+           //Debug.Log("updated graph");
             gridRefreshTimer = 0f;
         }
 
