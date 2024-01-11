@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2768272109241827522}
   - component: {fileID: 156034414153048520}
   - component: {fileID: 7298408633298896512}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1600070538145791269}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TestBasicBlockDressing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 2095927298306238931}
   - component: {fileID: 8429850481312074076}
   - component: {fileID: 6102329679437297460}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 7158248229426339417}
   - component: {fileID: 3536542483100668806}
   - component: {fileID: 8998317526405468046}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 8012065014790813097}
   - component: {fileID: 1694008423683866157}
   - component: {fileID: 5763602462758245388}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

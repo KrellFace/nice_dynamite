@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
@@ -12,12 +13,12 @@ public class GenerateNavLinks : MonoBehaviour
     Vector3 closestPointFromAToB;
     Vector3 closestPointFromBToA;
     public float linkCompenstationAmount;
-    public List<BoxCollider> floors = new List<BoxCollider>();
-    public List<BoxCollider> walls = new List<BoxCollider>();
-    public List<BoxCollider> ceilings = new List<BoxCollider>();
+    public List<MeshCollider> floors = new List<MeshCollider>();
+    public List<MeshCollider> walls = new List<MeshCollider>();
+    public List<MeshCollider> ceilings = new List<MeshCollider>();
     public bool debugLines;
     public float wallConnectThreshold;
-    BoxCollider[] allBoxes;
+    MeshCollider[] allMeshes;
 
     //[Button]
     public void DoGenerateLinks()
@@ -25,6 +26,13 @@ public class GenerateNavLinks : MonoBehaviour
         GetNavLinkTagTypes();
         SeparateLinkTagTypes();
         ConnectThemAll();
+    }
+
+    public void Start()
+    {
+        DoGenerateLinks();
+        InvokeRepeating("DoGenerateLinks",0f,10f);
+        //DoGenerateLinks();
     }
 
     public void ConnectThemAll()
@@ -38,14 +46,14 @@ public class GenerateNavLinks : MonoBehaviour
     public void GetNavLinkTagTypes()
     {
         navtags = GetComponentsInChildren<NavLinkTag>();
-        allBoxes = GetComponentsInChildren<BoxCollider>();
+        allMeshes = GetComponentsInChildren<MeshCollider>();
     }
 
     public void SeparateLinkTagTypes()
     {
-        for (int index = 0; index < allBoxes.Length; index++)
+        for (int index = 0; index < allMeshes.Length; index++)
         {
-            var box = allBoxes[index];
+            var box = allMeshes[index];
 
             var i = box.gameObject.GetComponent<NavLinkTag>();
 
@@ -76,7 +84,7 @@ public class GenerateNavLinks : MonoBehaviour
         }
     }
 
-    public void ConnectAListToBList(List<BoxCollider> aList, List<BoxCollider> bList)
+    public void ConnectAListToBList(List<MeshCollider> aList, List<MeshCollider> bList)
     {
         for (int index = 0; index < aList.Count; index++)
         {
@@ -91,7 +99,7 @@ public class GenerateNavLinks : MonoBehaviour
 
     }
 
-    public void IfDistanceOkThenConnect(List<BoxCollider> aList, List<BoxCollider> bList)
+    public void IfDistanceOkThenConnect(List<MeshCollider> aList, List<MeshCollider> bList)
     {
         for (int index = 0; index < aList.Count; index++)
         {
@@ -119,7 +127,7 @@ public class GenerateNavLinks : MonoBehaviour
             return false;
         }
 
-        var boxCenter = a.GetComponent<BoxCollider>().center;
+        var boxCenter = a.GetComponent<MeshCollider>().bounds.center;
         var aCenter = a.transform.TransformPoint(boxCenter);
 
         var closestFromAToB = a.ClosestPoint(b.ClosestPoint(aCenter));
@@ -195,7 +203,7 @@ public class GenerateNavLinks : MonoBehaviour
 
     public Vector3 GetBoxCenterPosition(Collider coll, Transform trans)
     {
-        var box = coll.GetComponent<BoxCollider>().center;
+        var box = coll.GetComponent<MeshCollider>().bounds.center;
         return trans.transform.TransformPoint(box);
     }
 

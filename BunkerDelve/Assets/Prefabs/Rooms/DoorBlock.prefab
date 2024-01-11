@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3486019069918007734}
   - component: {fileID: 6356486079428614685}
   - component: {fileID: 8558536835862943335}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DoorBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
