@@ -12,7 +12,8 @@ public enum PlayerLookingAt
 public class script_PlayerLookingAtChecker : MonoBehaviour
 {
     //GAME OBJECTS
-    //private script_InteractPopUp interactPopUp;
+    public GameObject interactPopUp;
+
 
     //FIXED VARIABLES
     public LayerMask interactableLayer;
@@ -21,6 +22,7 @@ public class script_PlayerLookingAtChecker : MonoBehaviour
     private PlayerLookingAt lookingAt;
     private GameObject lookedAtObject;
     private script_GoalObject lookedAtGoalObj;
+    private bool isPopupActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,10 @@ public class script_PlayerLookingAtChecker : MonoBehaviour
         RaycastHit hit;
 
         if(Physics.Raycast(this.transform.position, this.transform.forward, out hit, 3f, interactableLayer)){
+            if(!isPopupActive){
+                interactPopUp.SetActive(true);
+                isPopupActive=true;
+            }
             if(hit.collider.gameObject.CompareTag("NPC")){
                 lookingAt = PlayerLookingAt.TALKABLE_NPC;
                 lookedAtObject = hit.collider.gameObject;
@@ -52,6 +58,10 @@ public class script_PlayerLookingAtChecker : MonoBehaviour
             }
 
         }else{
+            if(isPopupActive){
+                interactPopUp.SetActive(false);
+                isPopupActive=false;
+            }
             lookingAt = PlayerLookingAt.NONE;
                 lookedAtObject= null;
                 //if(lookedAtGoalObj!=null){

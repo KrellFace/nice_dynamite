@@ -66,7 +66,7 @@ public class script_Room : MonoBehaviour
 
         //GOAL OBJECT
         if(roomType!=enum_RoomTypes.GOAL){
-            roomDressingManager.SpawnGoalObject(goalObjectLocations[Random.Range(0,goalObjectLocations.Length)], this.transform);
+            roomDressingManager.SpawnGoalObject(goalObjectLocations[Random.Range(0,goalObjectLocations.Length)]);
         }
         
     }

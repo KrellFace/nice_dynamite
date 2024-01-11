@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 3297332942344335896}
   - component: {fileID: 3593340754247782044}
   - component: {fileID: 8583874092134493760}
+  - component: {fileID: 8426352253224058686}
   m_Layer: 0
   m_Name: Glowstick
   m_TagString: Untagged
@@ -231,3 +232,15 @@ CapsuleCollider:
   m_Height: 0.0007121339
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8426352253224058686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2558612526077523030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd6644706259aa4c9220d91b30cf538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

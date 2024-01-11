@@ -25,7 +25,7 @@ public class script_RoomManager : MonoBehaviour
     private int roomsVisited = 0;
     private bool persuitStarted = false;
 
-    private bool readyToSpawnGoal;
+    private bool readyToSpawnGoal = false;
 
 
     private void Start() {

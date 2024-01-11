@@ -8,6 +8,10 @@ public class script_AudioManager : MonoBehaviour
     public AudioSource[] stepSounds;
     public AudioSource glowStickCrack;
 
+    public AudioSource musicDrumsLayer;
+    public float maxDrumsVolume = 0.1f;
+    private float drumsIntensity = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +34,11 @@ public class script_AudioManager : MonoBehaviour
 
     public void PlayGlowstickCrack(){
         glowStickCrack.Play(0);
+    }
+
+    public void MakeDrumsMoreIntense(){
+        drumsIntensity+=0.05f;
+        Debug.Log("Drums intensity: " + drumsIntensity);
+        musicDrumsLayer.volume = Mathf.Min(drumsIntensity, maxDrumsVolume);
     }
 }

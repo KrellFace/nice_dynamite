@@ -13,14 +13,19 @@ public class PlayerDetector : MonoBehaviour
     private CharacterController controller;
     private GameObject player;
 
+    private script_GameEndedUI gameEndedUI;
+
     public Path path;
 
     public float threatLevel = 0;
-    public float threatLevelMax = 100;
+    private float threatLevelMax = 20;
     private float threatLevelIncreaseTimer = 0;
     private float gridRefreshTimer = 0;
     private float targetChangeTimer = 0;
-    private float respawnTimer = 0;
+    private bool spawnedIn = false;
+    public bool enemyActive = false;
+    private float despawnTimer = 0f;
+    private float respawnTimer = 0f;
 
     public float speed = 2;
     public float rotationSpeed = 2f;
@@ -34,7 +39,9 @@ public class PlayerDetector : MonoBehaviour
     public void Start () {
         seeker = GetComponent<Seeker>();
         player = GameObject.FindGameObjectWithTag("Player");
-        targetPosition = player.transform.position + (Vector3)((100-threatLevel) * Random.insideUnitCircle);
+        targetPosition = player.transform.position;
+
+        gameEndedUI = FindObjectOfType<script_GameEndedUI>();
 
         controller = GetComponent<CharacterController>();
 
@@ -98,29 +105,58 @@ public class PlayerDetector : MonoBehaviour
         
         threatLevelIncreaseTimer += Time.deltaTime;
         gridRefreshTimer += Time.deltaTime;
-        targetChangeTimer += Time.deltaTime;
-        
-        respawnTimer += Time.deltaTime;
+
+        //Spawn enemy in after set delay
+        if(enemyActive&&!spawnedIn){
+            respawnTimer += Time.deltaTime;
+            if(respawnTimer >= 15f)
+            {
+                SpawnEnemy();
+                respawnTimer = 0f;
+                spawnedIn = true;
+            }
+        }
+
+        //While spawned in, constantly track player. Despawn after timer so long as player is far enough away
+        if(spawnedIn){
+            targetChangeTimer += Time.deltaTime;
+            if(targetChangeTimer >= 3f)
+            {
+                //targetPosition = player.transform.position + (Vector3)((100 - threatLevel) * Random.insideUnitCircle);
+                targetPosition = player.transform.position;
+                seeker.StartPath(transform.position, targetPosition, OnPathComplete);
+                targetChangeTimer = 0f;
+            }
+            despawnTimer+=Time.deltaTime;
+            if(despawnTimer>=12f&&Vector3.Distance(this.transform.position, player.transform.position)>15f){
+                DespawnEnemy();
+                despawnTimer = 0f;
+                spawnedIn = false;
+            }
+        }
+
+        /*
         if(respawnTimer >= 20f)
         {
             var data = AstarPath.active.data;
             //respawn the agent somewhere on the grid within a certain distance of the player
-            var pos = player.transform.position + (Vector3)(20 * Random.insideUnitCircle);
+            //var pos = player.transform.position + (Vector3)(20 * Random.insideUnitCircle);
+            var pos = player.transform.position + (Vector3)((100 - threatLevel) * Random.insideUnitCircle.normalized);
+            
+
             var node = data.gridGraph.GetNearest(pos, NNConstraint.None).node;
             transform.position = (Vector3)node.position;
             respawnTimer = 0f;
         }
-        if(targetChangeTimer >= 5f)
-        {
-            targetPosition = player.transform.position + (Vector3)((100 - threatLevel) * Random.insideUnitCircle);
-            seeker.StartPath(transform.position, targetPosition, OnPathComplete);
-            targetChangeTimer = 0f;
-        }
-        if (threatLevelIncreaseTimer >= 10f)
+        */
+
+
+        if (threatLevelIncreaseTimer >= 10f&&threatLevel<threatLevelMax)
         {
             threatLevel++;
 
             threatLevelIncreaseTimer = 0f;
+            //Debug.Log("Threat level:" + threatLevel);
         }
         if(gridRefreshTimer >= 4f)
         {
@@ -130,17 +166,38 @@ public class PlayerDetector : MonoBehaviour
            //Debug.Log("updated graph");
             gridRefreshTimer = 0f;
         }
-
-        if (threatLevel >= threatLevelMax)
-        {
-            //TODO
-        }
-
         var direction = (player.transform.position - transform.position).normalized;
         var lookRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
 
 
+    }
+
+
+    private void SpawnEnemy(){
+        var data = AstarPath.active.data;
+        //respawn the agent somewhere on the grid within a certain distance of the player
+        //var pos = player.transform.position + (Vector3)(20 * Random.insideUnitCircle);
+        var pos = player.transform.position + (Vector3)((30 - threatLevel) * Random.insideUnitCircle.normalized);
+        var node = data.gridGraph.GetNearest(pos, NNConstraint.None).node;
+        transform.position = (Vector3)node.position;
+
+        Debug.Log("Spawning enemy at pos " + pos + " with threat " + threatLevel + " and player pos: " + player.transform.position);
+    }
+
+    private void DespawnEnemy(){
+        transform.position = new Vector3(0,-50,0);
+    }
+
+    public void SetEnemyActive(){
+        enemyActive = true;
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Player")){
+            Debug.Log("Game Over!");
+            gameEndedUI.ActivateEndScreen(false);
+        }
     }
 
 }

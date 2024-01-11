@@ -84,9 +84,7 @@ public class script_PlayerController : MonoBehaviour
         //collectionLog = FindObjectOfType<script_CollectionLog>();
         //gameManager = FindObjectOfType<script_GameManager>();
 
-        Cursor.lockState = CursorLockMode.Locked;
-
-        playerMovementAllowed=true;
+        playerMovementAllowed=false;
 
     }
     void Update()
@@ -180,17 +178,21 @@ public class script_PlayerController : MonoBehaviour
     } 
     
     public void OnFireAction(InputAction.CallbackContext context){
-        if(context.performed){
+        if(context.performed&&playerMovementAllowed){
             ThrowGlowstick();
         }
     } 
 
     private void ThrowGlowstick(){
-        GameObject glowstick = Instantiate(glowstickPrefab,playerHands.transform.position, this.transform.rotation);
-        Rigidbody rgb = glowstick.GetComponent<Rigidbody>();
-        //Debug.Log(this.transform.forward);
-        rgb.AddForce(this.transform.forward*glowStickThrowForce);
-        audioManager.PlayGlowstickCrack();
+        if(!glowStickThrown){
+
+            GameObject glowstick = Instantiate(glowstickPrefab,playerHands.transform.position, this.transform.rotation);
+            Rigidbody rgb = glowstick.GetComponent<Rigidbody>();
+            //Debug.Log(this.transform.forward);
+            rgb.AddForce(this.transform.forward*glowStickThrowForce);
+            audioManager.PlayGlowstickCrack();
+            glowStickThrown=true;
+        }
 
     }
 

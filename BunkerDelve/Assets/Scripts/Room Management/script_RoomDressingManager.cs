@@ -11,6 +11,7 @@ public class script_RoomDressingManager : MonoBehaviour
 
     private script_DialogueManager dialogueManager;
     private script_GameFlowManager gameFlowManager;
+    private script_AudioManager audioManager;
 
     [Header("Set Dressing Prefabs")]
     public GameObject[] basicBoxDressings;
@@ -30,6 +31,7 @@ public class script_RoomDressingManager : MonoBehaviour
     {
         dialogueManager = FindObjectOfType<script_DialogueManager>();
         gameFlowManager = FindObjectOfType<script_GameFlowManager>();
+        audioManager  = FindObjectOfType<script_AudioManager>();
     }
     
     public GameObject GetDressingForRoomType(enum_RoomTypes type){
@@ -47,12 +49,13 @@ public class script_RoomDressingManager : MonoBehaviour
         return Instantiate(doorBlocks[Random.Range(0,doorBlocks.Length)]);
     }
 
-    public void SpawnGoalObject(Transform loc, Transform parentRoom){
+    public void SpawnGoalObject(Transform parentLoc){
         if(Random.Range(0f, 1f)<goalObjectChance){
             GameObject obj = Instantiate(goalObjects[currGoalID]);
             obj.GetComponent<script_GoalObject>().Bind(this);
-            obj.transform.position = loc.position;
-            obj.transform.parent = parentRoom;
+            obj.transform.parent = parentLoc;
+            obj.transform.localPosition = new Vector3(0,0,0);
+            obj.transform.localEulerAngles = new Vector3(0,0,0);
         }
     }
 
@@ -62,6 +65,7 @@ public class script_RoomDressingManager : MonoBehaviour
             Debug.Log("Collected goal object " + id + ". Advancing in game");
             if(currGoalID >1){
                 dialogueManager.SpawnPopUp("Another photo found. One step closer");
+                audioManager.MakeDrumsMoreIntense();
             }
             if(currGoalID ==6){
                 dialogueManager.SpawnPopUp("I think I've got a way out of here now");
