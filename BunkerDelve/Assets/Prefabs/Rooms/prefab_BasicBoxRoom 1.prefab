@@ -430,7 +430,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 176477028015679098}
   - component: {fileID: 3033623591730416170}
   m_Layer: 0
-  m_Name: prefab_BasicBoxRoom
+  m_Name: prefab_BasicBoxRoom 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
