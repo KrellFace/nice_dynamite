@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -17,6 +19,7 @@ public class script_PlayerController : MonoBehaviour
     public GameObject playerHead;
     private CharacterController controller;
     private script_PlayerLookingAtChecker playerLookingAtChecker;
+    public Transform playerHands;
     //MOVEMENT
     public float moveSpeed = 0.1f;
     public float sprintMod = 1.5f;
@@ -56,6 +59,13 @@ public class script_PlayerController : MonoBehaviour
     public float crouchAmount = 0.6f;
     public float crouchSpeedReduction = 0.5f;
 
+    //GLOWSTICK THROWING
+    public GameObject glowstickPrefab;
+    private bool glowStickThrown = false;
+    private float glowStickCooldown = 2f;
+    private float currGlowstickTimer = 0f;
+    public float glowStickThrowForce = 5f;
+
 
     private void Start() {
 
@@ -86,6 +96,14 @@ public class script_PlayerController : MonoBehaviour
         else{
             playerSteps.SetIsWalking(false);
         }
+
+        if(glowStickThrown){
+            currGlowstickTimer+=Time.deltaTime;
+            if(currGlowstickTimer>glowStickCooldown){
+                glowStickThrown=false;
+                currGlowstickTimer = 0f;
+            }
+        }
         
     }
 
@@ -103,7 +121,7 @@ public class script_PlayerController : MonoBehaviour
 
     public void OnLookAction(InputAction.CallbackContext context){
         currLookDirr = context.ReadValue<Vector2>();
-        Debug.Log("Look action: " + context.ReadValue<Vector2>());
+        //Debug.Log("Look action: " + context.ReadValue<Vector2>());
     }
     
     public void OnMoveAction(InputAction.CallbackContext context){
@@ -156,6 +174,20 @@ public class script_PlayerController : MonoBehaviour
             //gameManager.PauseAction();
         }
     } 
+    
+    public void OnFireAction(InputAction.CallbackContext context){
+        if(context.performed){
+            ThrowGlowstick();
+        }
+    } 
+
+    private void ThrowGlowstick(){
+        GameObject glowstick = Instantiate(glowstickPrefab,playerHands.transform.position, this.transform.rotation);
+        Rigidbody rgb = glowstick.GetComponent<Rigidbody>();
+        Debug.Log(this.transform.forward);
+        rgb.AddForce(this.transform.forward*glowStickThrowForce);
+
+    }
 
     private void UpdatePlayerFacing(){
         lookYaw += currLookDirr.x * yawSpeed * currLookSpeedSensitivity * Time.deltaTime;
