@@ -4,5 +4,6 @@ using UnityEngine;
 
 public enum enum_RoomTypes
 {
-    BASIC
+    BASICBOX,
+    TJUNCTION
 }

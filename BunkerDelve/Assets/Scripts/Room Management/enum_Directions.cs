@@ -7,5 +7,6 @@ public enum enum_Directions
     NORTH,
     SOUTH,
     WEST,
-    EAST
+    EAST,
+    NONE
 }
