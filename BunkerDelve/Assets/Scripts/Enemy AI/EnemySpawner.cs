@@ -34,17 +34,23 @@ public class EnemySpawner : MonoBehaviour
         spawnRadius = 100 - threatLevel;
         for (int i = 0; i < 100; i++) // Try 100 times
         {
-            Vector3 randomPoint = player.transform.position + Random.insideUnitSphere * spawnRadius;
+            //Vector3 randomPoint = player.transform.position + Random.insideUnitSphere * spawnRadius;
 
             // Check if the point is not intersecting with any obstacle
-            if (!Physics.CheckSphere(randomPoint, 3f, obstacleLayer))
+            if (!Physics.CheckSphere(point, 1f, obstacleLayer))
             {
-                if (Physics.Raycast(randomPoint, Vector3.down, 3f))
-                {
-                    return true;
-                }
+                //check for ground underneath point
+                
+                // if (Physics.Raycast(point, Vector3.down))
+                // {
+                //     return true;
+                // }
                 //point = randomPoint;
-                //return true; // Suitable point found
+                return true; // Suitable point found
+            }
+            else
+            {
+                Debug.Log(point + " intersecting with obstacle.");
             }
         }
 
@@ -64,14 +70,20 @@ public class EnemySpawner : MonoBehaviour
         if (respawnTimer >= 6f)
         {
             Vector3 randomPoint = player.transform.position + Random.insideUnitSphere * spawnRadius;
-            while (!FindSpawnPoint(randomPoint))
+            randomPoint.y = 1.5f;
+            if (FindSpawnPoint(randomPoint))
             {
                 randomPoint = player.transform.position + Random.insideUnitSphere * spawnRadius;
-
+                randomPoint.y = 1.5f;
+                transform.position = randomPoint;
             }
-            transform.position = randomPoint;
             respawnTimer =0f;
 
+        }
+
+        if (threatLevel >= threatLevelMax)
+        {
+            //TODO
         }
     }
 }
