@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2655228946247633716}
   - component: {fileID: 6442161652910410453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: A_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5508437990166674848}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28779715, y: 0.8424759, z: 11.38}
+  m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
+  m_LocalPosition: {x: 44.8, y: 0.3, z: 10.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
 --- !u!114 &6442161652910410453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAAIexUzynWSgIAAAwFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFVMty2jAU/RVG66ZjCNDSXWsI6SKBCe1k440iXWMNsuTRIzwy/HuvZBsbsujK8jnnXp37sD+IULYC5rRZGsGfNAfyY0DCmXwZdOQjHOhWq404Qat5FdwVQUSj5oU6oREfhjCrS3BGsJ9qK4M4QdArkWtTLvgWUm2dRTin0gJSRrsQrRD6GJBDE3BsnqfwHJzxxEA5MP9TecUkLSvgwW0nniatHE9RqLCSRhNcMy2lsI0N4o5VLDOllfVYBAq4oFhWNBD0BYht4fBl1A9e5bkF15gy9DgXBrtTZyW/dN2yktpd7eydSg8X63XKp0/s3TDSudHlY3vrMNbjCsF2L/TIqHW9jvbh+bVtr/ZU7uibhNcC1LNeGu0VR9IZH0K9hdG8l+pSWVoA23W62usN6KvP0xl20znH2g+pFOVbQL6Oa2Ajdez2LMSAwbn8RsNxJ2yTCdFg4q+FP3TbX56GeBDGOqSaC1Vw96a9CVKyiD0LxXiXaqMgwo3nChSV7rjGNO52gDdc79ob5oGGz6S5vOHa7b8JiXCnT5Ibaq33l2HZQu+fwBYr76RQ0JkOxDP2KdVK1fvV70kbtvEmp6wXtvWCX68WSWYzmgwn34eMQ/Ltfnx3P8HTeDpjbDziE5iSuHtCYZ1UrmujTXtwaqpLrnDP2r/HYGloFXedG7pfilOpey0XKtcbZgDU6iqDBYN34CfJF1xgfzbgnFBx3OQjI1KzHfDsos9ioYuDMzTrqs9IJd61C0hG0vjLyEiAL5u8NvAuYB/ubpOdyfkfUEsDBBQAAAgIAAAAIezI0WHGbAAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSgaVlooGhqYVhckqqgbmxia6xKZBlYmaZnGxilGKaaqYUC1RfUlmQ6peYmwrRE5BYkpGWmZeSmZeu516UmeIOMlopthYAUEsBAi0AFAAACAgAAAAh7FTPKdZKAgAADAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAAh7MjRYcZsAAAAeAAAAAkAJAAAAAAAAAAAAAAAlwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABOAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAIIeztkxmGUAIAAA4FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFVE1z2kAM/SvMnpuOCSRNemsNIT0kYUI6ufgivDLeYb3r2Y8AyfDfq13b2CGHnjBPT9LTk+wPJpStMXfaLIzgD5oj+zli4Zl9G/XBe9zDRquVeMeO8yq4KwMJIucZnNCEj0Oa1RU6I/JfaiMDOSHQK1FoU835BlNtnSW4AGmRQka7kK0I+hixfZtwaH/fw+/oSE85KofmfyyvcglVjTyo7cmTpKPTUyQqmqTlBNW5llLYVgZzhzqOmUJtPQ1BBC6AxooCku9XBJQoNqU7/T0VeCoKi64VZuAwE4Ycaiqz37qxrQK7bdS9gfSh101U1RR9+BK9GMdwYXR13/UNsl0p8u0zHHKwbuDpEJ71wsfRoB3ILawlvpaoHvXCaK84BZ3xIdVbvJwNSp3mSkvMtz2vUXoG+vrrfsb9fo5x8n0qRbWOxk0bYCV19HsajERDm/lDguNV2LYSoUHEX4svsBmeTxu4E8Y6CrUNVVC31t4EKptHx8Iw3qXaKIxwq7lGBdIdllTGna/vLDZoexa5g/CitM3bWHf/ZykR7vlJchZa6t1pWbbUuwe05ZN3UijsRYfAI/mUaqWa6xp60qWtvCkgH6RtvOCfD4tdAb+dTidTuLxe/7jF9cX0Bibj5PY6nyS8KCacxcsTiuYEuWyEtvbQ1lRfXNGddd+P0cJAHS+dG9gtxHulB5YLVehVbhDV06cKFg31oJeSz7kgf1bonFBx3ewjY1LnW+TZiZ/FQed7ZyDrp89YLd60C0jG0vjRyFiAT5e8NPgmcBd6d8WO7PgPUEsDBBQAAAgIAAAIIew1s9IUbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSaWKKpYmJsUmikVmSuWVqkq6JRaKxoYGlWbKxQUpamnGKUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIeztkxmGUAIAAA4FAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIew1s9IUbQAAAHgAAAAJACQAAAAAAAAAAAAAAJ0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAVQMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -60,7 +60,7 @@ MonoBehaviour:
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
   logPathResults: 1
-  maxNearestNodeDistance: 100
+  maxNearestNodeDistance: 500
   scanOnStartup: 1
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
@@ -107,11 +107,11 @@ MonoBehaviour:
   - 29
   - 30
   - 31
-  heuristic: 2
+  heuristic: 0
   heuristicScale: 1
   threadCount: 1
   maxFrameTime: 10
-  batchGraphUpdates: 0
+  batchGraphUpdates: 1
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
     mode: 0

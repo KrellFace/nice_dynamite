@@ -100,11 +100,11 @@ public class PlayerDetector : MonoBehaviour
         targetChangeTimer += Time.deltaTime;
         
         respawnTimer += Time.deltaTime;
-        if(respawnTimer >= 30f)
+        if(respawnTimer >= 20f)
         {
             var data = AstarPath.active.data;
             //respawn the agent somewhere on the grid within a certain distance of the player
-            var pos = player.transform.position + (Vector3)((100 - threatLevel) * Random.insideUnitCircle);
+            var pos = player.transform.position + (Vector3)(20 * Random.insideUnitCircle);
             var node = data.gridGraph.GetNearest(pos, NNConstraint.None).node;
             transform.position = (Vector3)node.position;
             respawnTimer = 0f;
