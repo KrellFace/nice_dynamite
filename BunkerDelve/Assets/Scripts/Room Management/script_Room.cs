@@ -29,8 +29,11 @@ public class script_Room : MonoBehaviour
 
         //SET DRESSING
         GameObject dressing = roomDressingManager.GetDressingForRoomType(roomType);
-        dressing.transform.parent = this.transform;
-        dressing.transform.localPosition = new Vector3(0,0,0);
+        if(dressing!=null){
+            dressing.transform.parent = this.transform;
+            dressing.transform.localPosition = new Vector3(0,0,0);
+
+        }
         
         //DOOR BLOCK
         bool spawnBlock = false;
@@ -60,7 +63,10 @@ public class script_Room : MonoBehaviour
         }
 
         //GOAL OBJECT
-        roomDressingManager.SpawnGoalObject(goalObjectLocations[Random.Range(0,goalObjectLocations.Length)], this.transform);
+        if(roomType!=enum_RoomTypes.GOAL){
+            roomDressingManager.SpawnGoalObject(goalObjectLocations[Random.Range(0,goalObjectLocations.Length)], this.transform);
+        }
+        
     }
 
     private void OnTriggerExit(Collider other) {
