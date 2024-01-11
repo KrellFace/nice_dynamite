@@ -1047,6 +1047,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doorway_wide_curved (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6102293796888194246, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3531
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102293796888194246, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00000092446
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102293796888194246, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.46368
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1897,8 +1909,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 7259416845253065289}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0739
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.645
+      value: -5.611
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1968,7 +1984,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1976,7 +1992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.763
+      value: 5.7706
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2037,8 +2053,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 7259416845253065289}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2138
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.651
+      value: 9.063
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c19270865ede4594ba5e936ba8eb29bb, type: 3}
       propertyPath: m_LocalPosition.y
