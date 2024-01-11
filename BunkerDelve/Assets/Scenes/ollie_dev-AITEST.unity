@@ -671,42 +671,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: A*
       objectReference: {fileID: 0}
-    - target: {fileID: 5508437990166674848, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5508437990166674848, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6442161652910410453, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
-      propertyPath: heuristic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6442161652910410453, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
-      propertyPath: threadCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6442161652910410453, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
-      propertyPath: showSearchTree
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6442161652910410453, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
-      propertyPath: data.dataString
-      value: UEsDBBQAAAgIAAAIIeztkxmGUAIAAA4FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFVE1z2kAM/SvMnpuOCSRNemsNIT0kYUI6ufgivDLeYb3r2Y8AyfDfq13b2CGHnjBPT9LTk+wPJpStMXfaLIzgD5oj+zli4Zl9G/XBe9zDRquVeMeO8yq4KwMJIucZnNCEj0Oa1RU6I/JfaiMDOSHQK1FoU835BlNtnSW4AGmRQka7kK0I+hixfZtwaH/fw+/oSE85KofmfyyvcglVjTyo7cmTpKPTUyQqmqTlBNW5llLYVgZzhzqOmUJtPQ1BBC6AxooCku9XBJQoNqU7/T0VeCoKi64VZuAwE4Ycaiqz37qxrQK7bdS9gfSh101U1RR9+BK9GMdwYXR13/UNsl0p8u0zHHKwbuDpEJ71wsfRoB3ILawlvpaoHvXCaK84BZ3xIdVbvJwNSp3mSkvMtz2vUXoG+vrrfsb9fo5x8n0qRbWOxk0bYCV19HsajERDm/lDguNV2LYSoUHEX4svsBmeTxu4E8Y6CrUNVVC31t4EKptHx8Iw3qXaKIxwq7lGBdIdllTGna/vLDZoexa5g/CitM3bWHf/ZykR7vlJchZa6t1pWbbUuwe05ZN3UijsRYfAI/mUaqWa6xp60qWtvCkgH6RtvOCfD4tdAb+dTidTuLxe/7jF9cX0Bibj5PY6nyS8KCacxcsTiuYEuWyEtvbQ1lRfXNGddd+P0cJAHS+dG9gtxHulB5YLVehVbhDV06cKFg31oJeSz7kgf1bonFBx3ewjY1LnW+TZiZ/FQed7ZyDrp89YLd60C0jG0vjRyFiAT5e8NPgmcBd6d8WO7PgPUEsDBBQAAAgIAAAIIew1s9IUbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSaWKKpYmJsUmikVmSuWVqkq6JRaKxoYGlWbKxQUpamnGKUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIeztkxmGUAIAAA4FAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIew1s9IUbQAAAHgAAAAJACQAAAAAAAAAAAAAAJ0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAVQMAAAAA
-      objectReference: {fileID: 0}
-    - target: {fileID: 6442161652910410453, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
-      propertyPath: prioritizeGraphs
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6442161652910410453, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
-      propertyPath: batchGraphUpdates
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6442161652910410453, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
-      propertyPath: maxNearestNodeDistance
-      value: 500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
