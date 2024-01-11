@@ -8,8 +8,13 @@ public class script_GameFlowManager : MonoBehaviour
     private script_DialogueManager dialogueManager;
     private script_RoomManager roomManager;
 
+    public GameObject photoPopUpPrefab;
+    public Canvas uiCanvas;
+
     //DYNAMIC VARAIBLES
     enum_GameFlowState currState = enum_GameFlowState.START;
+    private bool photoPopUpPresent = false;
+    private GameObject photoPopUp = null;
 
     //INTRO TEXT OBJECTS
     public GameObject introSpotLight;
@@ -65,6 +70,27 @@ public class script_GameFlowManager : MonoBehaviour
         else if(flowState ==enum_GameFlowState.COMPLETED ){
             Debug.Log("You are a winner! Comgratulations");
         }
+    }
+
+    public void CollectGoalObject(script_GoalObject go){
+        photoPopUp = Instantiate(photoPopUpPrefab, uiCanvas.transform);
+        photoPopUp.transform.localPosition = new Vector3(0,0,0);
+        photoPopUp.GetComponent<script_PhotoPopup>().Bind(go.goalSprite, go.goalText);
+        photoPopUpPresent= true;
+        Time.timeScale = 0;
+    }
+
+    public void ClosePopUp(){
+        Destroy(photoPopUp);
+        photoPopUp=null;
+        photoPopUpPresent=false;
+        Time.timeScale = 1;
+
+
+    }
+
+    public bool GetPhotoPopupPresent(){
+        return photoPopUpPresent;
     }
 
 

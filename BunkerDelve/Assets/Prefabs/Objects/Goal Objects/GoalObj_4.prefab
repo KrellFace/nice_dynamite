@@ -121,3 +121,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalID: 4
+  goalSprite: {fileID: 21300000, guid: 5a57f3e31da738946aa817c7edace082, type: 3}
+  goalText: Photo 5

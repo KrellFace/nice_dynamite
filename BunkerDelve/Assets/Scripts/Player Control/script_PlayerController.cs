@@ -14,6 +14,7 @@ public class script_PlayerController : MonoBehaviour
     //private script_CollectionLog collectionLog;
     private script_PlayerSteps playerSteps;
     //private script_GameManager gameManager;
+    private script_GameFlowManager gameFlowManager;
 
     //PLAYER BODY
     public GameObject playerHead;
@@ -79,6 +80,7 @@ public class script_PlayerController : MonoBehaviour
 
         //goalObjectManager = FindObjectOfType<script_GoalObjectManager>();
         audioManager = FindObjectOfType<script_AudioManager>();
+        gameFlowManager = FindObjectOfType<script_GameFlowManager>();
         //collectionLog = FindObjectOfType<script_CollectionLog>();
         //gameManager = FindObjectOfType<script_GameManager>();
 
@@ -157,8 +159,11 @@ public class script_PlayerController : MonoBehaviour
         }
     }
     public void OnInteractAction(InputAction.CallbackContext context){
-        if(context.performed&&playerMovementAllowed){
-            if(playerLookingAtChecker.GetLookingAt() == PlayerLookingAt.TALKABLE_NPC){
+        if(context.performed&&playerMovementAllowed){ 
+            if(gameFlowManager.GetPhotoPopupPresent()){
+                gameFlowManager.ClosePopUp();
+            }
+            else if(playerLookingAtChecker.GetLookingAt() == PlayerLookingAt.TALKABLE_NPC){
                 //playerLookingAtChecker.GetLookedAtObject().GetComponent<script_npc>().TriggerDialogue();
             }
             else if (playerLookingAtChecker.GetLookingAt() == PlayerLookingAt.GOAL_OBJECT){
