@@ -95,7 +95,7 @@ public class PlayerDetector : MonoBehaviour
         controller.SimpleMove(velocity);
         
         threatLevelIncreaseTimer += Time.deltaTime;
-        //gridRefreshTimer += Time.deltaTime;
+        gridRefreshTimer += Time.deltaTime;
         if (threatLevelIncreaseTimer >= 10f)
         {
             threatLevel++;
@@ -104,11 +104,11 @@ public class PlayerDetector : MonoBehaviour
             seeker.StartPath(transform.position, targetPosition, OnPathComplete);
             threatLevelIncreaseTimer = 0f;
         }
-        // if(gridRefreshTimer >= 5f)
-        // {
-        //     AstarPath.active.Scan();
-        //     gridRefreshTimer = 0f;
-        // }
+        if(gridRefreshTimer >= 5f)
+        {
+            AstarPath.active.Scan();
+            gridRefreshTimer = 0f;
+        }
 
         if (threatLevel >= threatLevelMax)
         {
