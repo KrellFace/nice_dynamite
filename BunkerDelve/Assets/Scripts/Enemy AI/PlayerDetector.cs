@@ -19,7 +19,7 @@ public class PlayerDetector : MonoBehaviour
     public float threatLevelMax = 100;
     private float threatLevelIncreaseTimer = 0;
     private float gridRefreshTimer = 0;
-    
+    private float targetChangeTimer = 0;
 
     public float speed = 2;
 
@@ -41,7 +41,7 @@ public class PlayerDetector : MonoBehaviour
     }
 
     public void OnPathComplete (Path p) {
-        Debug.Log("A path was calculated. Did it fail with an error? " + p.error);
+        //Debug.Log("A path was calculated. Did it fail with an error? " + p.error);
 
         if (!p.error) {
             path = p;
@@ -96,15 +96,20 @@ public class PlayerDetector : MonoBehaviour
         
         threatLevelIncreaseTimer += Time.deltaTime;
         gridRefreshTimer += Time.deltaTime;
+        targetChangeTimer += Time.deltaTime;
+        if(targetChangeTimer >= 5f)
+        {
+            targetPosition = player.transform.position + (Vector3)((100 - threatLevel) * Random.insideUnitCircle);
+            seeker.StartPath(transform.position, targetPosition, OnPathComplete);
+            targetChangeTimer = 0f;
+        }
         if (threatLevelIncreaseTimer >= 10f)
         {
             threatLevel++;
-            targetPosition = player.transform.position + (Vector3)((100-threatLevel) * Random.insideUnitCircle);
-            //targetPosition = player.transform.position;
-            seeker.StartPath(transform.position, targetPosition, OnPathComplete);
+
             threatLevelIncreaseTimer = 0f;
         }
-        if(gridRefreshTimer >= 5f)
+        if(gridRefreshTimer >= 4f)
         {
             AstarPath.active.Scan();
             gridRefreshTimer = 0f;
