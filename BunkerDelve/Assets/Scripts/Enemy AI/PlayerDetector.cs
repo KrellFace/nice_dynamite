@@ -23,6 +23,7 @@ public class PlayerDetector : MonoBehaviour
     private float respawnTimer = 0;
 
     public float speed = 2;
+    public float rotationSpeed = 2f;
 
     public float nextWaypointDistance = 3;
 
@@ -134,6 +135,11 @@ public class PlayerDetector : MonoBehaviour
         {
             //TODO
         }
+
+        var direction = (player.transform.position - transform.position).normalized;
+        var lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+
 
     }
 
