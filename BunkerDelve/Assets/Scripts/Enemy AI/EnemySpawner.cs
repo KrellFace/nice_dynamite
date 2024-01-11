@@ -13,8 +13,9 @@ public class EnemySpawner : MonoBehaviour
     private float threatLevelMax = 100f;
     private float respawnTimer = 0f;
     private float threatLevelIncreaseTimer = 0f;
+    private float lineOfSightTimer = 0f;
 
-    void Start()
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         // Vector3 spawnPoint = ;
@@ -74,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
             if (FindSpawnPoint(randomPoint))
             {
                 randomPoint = player.transform.position + Random.insideUnitSphere * spawnRadius;
-                randomPoint.y = 1.5f;
+                randomPoint.y = 1f;
                 transform.position = randomPoint;
             }
             respawnTimer =0f;
@@ -85,5 +86,20 @@ public class EnemySpawner : MonoBehaviour
         {
             //TODO
         }
+        
+        //check if we are in line of sight of player
+        //if we are, then increase threat level
+        //
+        // var objects Physics.OverlapSphere(transform.position, 10f);
+        // foreach (var obj in objects)
+        // {
+        //     if(obj.tag == "Player")
+        //     {
+        //         //check if we can actually see the player
+        //         //if we can, increase threat level
+        //         if()
+        //         threatLevel += 2f;
+        //     }
+        // }
     }
 }
