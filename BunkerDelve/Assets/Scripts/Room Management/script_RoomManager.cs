@@ -7,6 +7,8 @@ public class script_RoomManager : MonoBehaviour
     //GAME OBJECTS
     script_RoomDressingManager roomDressingManager;
     script_GameFlowManager gameFlowManager;
+
+    Transform enemy = null;
     //DYNAMIC VARIALBES
     private int[] currPlayerLoc = new int[]{0,0};
     
@@ -167,6 +169,14 @@ public class script_RoomManager : MonoBehaviour
     }
 
     private void DeSpawnDistantRooms(){
+        
+        float cullDist = 2.5f;
+        //enemy = FindObjectOfType<PlayerDetector>().transform;
+        if(enemy!=null){
+            //TO DO
+        }
+
+
         List<script_Room> toRemove = new List<script_Room>();
         foreach(script_Room r in spawnedRooms){
             int[] r1 = r.GetLoc();
