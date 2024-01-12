@@ -165,10 +165,14 @@ public class PlayerDetector : MonoBehaviour
         }
         if(gridRefreshTimer >= 4f)
         {
-              AstarPath.active.Scan();
+            AstarPath.active.data.gridGraph.center = new Vector3(player.transform.position.x, 12.3f, player.transform.position.z);
+            AstarPath.active.Scan();
+              //recenter the graph around the player
+              
            // Bounds bounds = GetComponent<Collider>().bounds;
            // AstarPath.active.UpdateGraphs(bounds);
            //Debug.Log("updated graph");
+           
             gridRefreshTimer = 0f;
         }
         var direction = (player.transform.position - transform.position).normalized;
