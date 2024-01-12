@@ -17,7 +17,7 @@ public class script_DialoguePopup : MonoBehaviour
     private float slideInTime = 0.25f;
     private float characterAppearTime = 0.001f;
 
-    private float hangTime = 1f;
+    private float hangTime = 3f;
 
     //DYNAMIC VARAIBLES
     private enum_DialogueState state;
