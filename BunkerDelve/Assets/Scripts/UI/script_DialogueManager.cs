@@ -11,14 +11,20 @@ public class script_DialogueManager : MonoBehaviour
 
     //FIXED VARIABLES
 
-    public string[] tutorialText;
+    public string[] introText;
+    public string[] glowStickTutorialText;
+    public string[] photoTutorialText;
+    public string[] readyToDescendText;
 
     //DYNAMIC VARIABLES
 
     private bool dialogueSpawned;
+    public bool playingIntro;
+    public bool playingGlowSticks;
+    public bool playingPhotoTut;
+    public bool playingReadyToD;
+    private int currIntroText =0;
 
-    public bool playingTutorial;
-    private int currTutorialText =0;
 
 
     public bool DEBUG_spawnText;
@@ -33,13 +39,46 @@ public class script_DialogueManager : MonoBehaviour
     void Update()
     {
 
-        if(playingTutorial&&!dialogueSpawned){
+        if(playingIntro&&!dialogueSpawned){
             
-            SpawnPopUp(tutorialText[currTutorialText]);
-            currTutorialText+=1;
-            if(currTutorialText>tutorialText.Length-1){
-                playingTutorial = false;
-                gameFlowManager.ChangeState(enum_GameFlowState.READY_TO_DECEND);
+            SpawnPopUp(introText[currIntroText]);
+            currIntroText+=1;
+            if(currIntroText>introText.Length-1){
+                playingIntro = false;
+                gameFlowManager.ChangeState(enum_GameFlowState.GLOWSTICK_PICKUP);
+                currIntroText=0;
+            }
+        }
+
+        if(playingGlowSticks&&!dialogueSpawned){
+            
+            SpawnPopUp(glowStickTutorialText[currIntroText]);
+            currIntroText+=1;
+            if(currIntroText>glowStickTutorialText.Length-1){
+                playingGlowSticks = false;
+                gameFlowManager.glowSticksDialogueOver=true;
+                currIntroText=0;
+            }
+        }
+
+        if(playingPhotoTut&&!dialogueSpawned){
+            
+            SpawnPopUp(photoTutorialText[currIntroText]);
+            currIntroText+=1;
+            if(currIntroText>photoTutorialText.Length-1){
+                playingPhotoTut = false;
+                gameFlowManager.firstPhotoDialogueOver=true;
+                currIntroText=0;
+            }
+        }
+
+        if(playingReadyToD&&!dialogueSpawned){
+            
+            SpawnPopUp(readyToDescendText[currIntroText]);
+            currIntroText+=1;
+            if(currIntroText>readyToDescendText.Length-1){
+                playingReadyToD = false;
+                currIntroText=0;
             }
         }
 

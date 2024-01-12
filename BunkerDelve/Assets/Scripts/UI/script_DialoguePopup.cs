@@ -11,11 +11,11 @@ public class script_DialoguePopup : MonoBehaviour
 
     //FIXED VARIABLES
     private float yLocOut = -610;
-    private float yLocIn = -450;
+    private float yLocIn = -360;
     private float currYLoc = 0f;
 
-    private float slideInTime = 1f;
-    private float characterAppearTime = 0.05f;
+    private float slideInTime = 0.25f;
+    private float characterAppearTime = 0.001f;
 
     private float hangTime = 1f;
 

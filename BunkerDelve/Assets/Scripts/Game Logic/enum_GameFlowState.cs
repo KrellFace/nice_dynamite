@@ -6,6 +6,8 @@ public enum enum_GameFlowState
 {
     START,
     INTRO_TEXT,
+    GLOWSTICK_PICKUP,
+    PHOTO_PICKUP,
     READY_TO_DECEND,
     INITIAL_HUNT,
     PERSUED,

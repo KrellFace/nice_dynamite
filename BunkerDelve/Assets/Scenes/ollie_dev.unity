@@ -439,6 +439,81 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &296998820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296998821}
+  - component: {fileID: 296998823}
+  - component: {fileID: 296998822}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &296998821
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296998820}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 896142225}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -32.6}
+  m_SizeDelta: {x: 773.83, y: 474.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &296998822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296998820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9a0468a20d5dc7640b520f7ee71f5789, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &296998823
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296998820}
+  m_CullTransparentMesh: 1
 --- !u!1 &350663881
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +642,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &421411182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9006805368803623127, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+  m_PrefabInstance: {fileID: 8159794940241917196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &444361301
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,11 +738,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePrefab: {fileID: 40049703620584104, guid: e28bcca32f369d240a356bc4c6c2f3ad, type: 3}
   uiCanvas: {fileID: 1971161135}
-  tutorialText:
-  - Tutorial Text 1
-  - Tutorial Text 2
-  - Tutorial Text 3
-  playingTutorial: 0
+  introText:
+  - '"Ah, welcome, welcome one and all. Welcome to tonight''s edition of ''The Denouement''!"'
+  - '"What some call an escape room, we call... a voyage into the recesses and thrills
+    of madness and mystery."'
+  - '"They say this noble edifice was once bought by a famous magician, Nick Caldlow.
+    Caldlow was on the verge of ruin, looking for a way out of his crippling debt."'
+  - '"Caldlow purchase the very building we now stand in, and began work on a reality-shattering
+    act... and was never seen or heard of again."'
+  - '"Quite the mystery, is it not? And you, dear ''detective'', are the only one
+    who can solve it! I''m Albert, one of the actors in this experience."'
+  - '"Now, let''s talk about how this all works."'
+  - '"To navigate these dark rooms, we are giving you those glowsticks. They will
+    help you see in the dark, reveal hidden secrets... or unwanted company."'
+  - '"Go on, try one! Just pick them up by pressing E."'
+  glowStickTutorialText:
+  - You can throw one to illuminate the darkness with Left Click
+  - '"Wonderful. You''re a natural at this, aren''t you. I''m sure you will do great."'
+  photoTutorialText:
+  - '"Once I finish this introduction, you will explore a series of rooms. Your mission
+    is to find a series of photographs, that will help you piece together the mystery
+    of Caldlow."'
+  - '"One such photograph has been placed in this room. Find it and press E to pick
+    it up."'
+  readyToDescendText:
+  - '"Well done. There are five such photographs for you to find. Find them all,
+    and the exit will reveal itself to you!"'
+  - '"Now that you know what you have to do, I must warn you: danger lurks in this
+    place..."'
+  - '"Just kidding. But do watch your back, and keep an ear out for suspicious sounds...
+    threats might be nearer than you think. If so: run!"'
+  - '"And if something happens... well. We are not in space. Maybe someone will hear
+    you scream. Haha!"'
+  - '"Ahem. Anyway. Whenever you''re ready, just decend through that hole over there.
+    Good luck, dear friend."'
+  playingIntro: 0
+  playingGlowSticks: 0
+  playingPhotoTut: 0
+  playingReadyToD: 0
   DEBUG_spawnText: 0
 --- !u!4 &493000819
 Transform:
@@ -899,6 +1012,18 @@ PrefabInstance:
     - target: {fileID: 4607485945906350706, guid: 6b8eaaf3db9d49f40ac330bbb539c2af, type: 3}
       propertyPath: m_Intensity
       value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082563748031138696, guid: 6b8eaaf3db9d49f40ac330bbb539c2af, type: 3}
+      propertyPath: yawSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082563748031138696, guid: 6b8eaaf3db9d49f40ac330bbb539c2af, type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082563748031138696, guid: 6b8eaaf3db9d49f40ac330bbb539c2af, type: 3}
+      propertyPath: pitchSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7597203574755387128, guid: 6b8eaaf3db9d49f40ac330bbb539c2af, type: 3}
       propertyPath: interactPopUp
@@ -1213,6 +1338,7 @@ RectTransform:
   m_Children:
   - {fileID: 1981006238}
   - {fileID: 1122450442}
+  - {fileID: 296998821}
   m_Father: {fileID: 2081164294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1220,6 +1346,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &978956153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2371590844582253913, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+  m_PrefabInstance: {fileID: 8159794940241917196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &980224458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,8 +1410,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69bac1fdfd6dec64f84382f1def6e9cf, type: 2}
+  m_sharedMaterial: {fileID: -718700548338598836, guid: 69bac1fdfd6dec64f84382f1def6e9cf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1463,8 +1594,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 301.912}
-  m_SizeDelta: {x: 611.344, y: 150.014}
+  m_AnchoredPosition: {x: 0, y: 264.8}
+  m_SizeDelta: {x: 785.2, y: 150.014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122450443
 MonoBehaviour:
@@ -1488,8 +1619,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You Escaped!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69bac1fdfd6dec64f84382f1def6e9cf, type: 2}
+  m_sharedMaterial: {fileID: -718700548338598836, guid: 69bac1fdfd6dec64f84382f1def6e9cf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1609,7 +1740,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photoPopUpPrefab: {fileID: 2157037266347338924, guid: b7d3170832aa2854e899cefcc8e8703c, type: 3}
   uiCanvas: {fileID: 1971161135}
+  glowsticks: {fileID: 978956153}
+  firstPhoto: {fileID: 421411182}
   introSpotLight: {fileID: 1723986189}
+  glowSticksCollected: 0
+  glowSticksDialogueOver: 0
+  firstPhotoCollected: 0
+  firstPhotoDialogueOver: 0
   trapDoorSpotLight: {fileID: 2011036254}
 --- !u!1 &1125170753
 GameObject:
@@ -1670,8 +1807,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play Again?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69bac1fdfd6dec64f84382f1def6e9cf, type: 2}
+  m_sharedMaterial: {fileID: -718700548338598836, guid: 69bac1fdfd6dec64f84382f1def6e9cf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2954,6 +3091,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm: {fileID: 1122450443}
   uiStuff: {fileID: 896142224}
+  image: {fileID: 296998822}
+  youDiedSprite: {fileID: 21300000, guid: aa9dce52a88c5df4fa26d8b114412b7b, type: 3}
+  youWonSprite: {fileID: 21300000, guid: 9a0468a20d5dc7640b520f7ee71f5789, type: 3}
 --- !u!1001 &2117074314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3135,6 +3275,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2371590844582253913, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8316281080401311636, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3144,6 +3288,10 @@ PrefabInstance:
       value: IntroStage
       objectReference: {fileID: 0}
     - target: {fileID: 8659097426152805058, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006805368803623127, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

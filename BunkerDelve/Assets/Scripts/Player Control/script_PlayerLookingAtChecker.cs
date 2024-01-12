@@ -7,7 +7,8 @@ public enum PlayerLookingAt
 {
     NONE,
     TALKABLE_NPC,
-    GOAL_OBJECT
+    GOAL_OBJECT,
+    GLOWSTICKS
 }
 public class script_PlayerLookingAtChecker : MonoBehaviour
 {
@@ -51,6 +52,12 @@ public class script_PlayerLookingAtChecker : MonoBehaviour
                 //lookedAtGoalObj.HighlightObj(true);
 
                 Debug.Log("Looking at Goal Object");
+            }else if(hit.collider.gameObject.CompareTag("Glowsticks")){
+                lookingAt = PlayerLookingAt.GLOWSTICKS;
+                lookedAtObject = hit.collider.gameObject;
+                //lookedAtGoalObj.HighlightObj(true);
+
+                Debug.Log("Looking at Glowsticks Object");
             }else{
                 Debug.Log("Looking at unidentified interactable");
                 lookingAt = PlayerLookingAt.NONE;

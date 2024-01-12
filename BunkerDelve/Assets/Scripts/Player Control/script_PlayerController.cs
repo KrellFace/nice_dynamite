@@ -63,6 +63,7 @@ public class script_PlayerController : MonoBehaviour
     //GLOWSTICK THROWING
     public GameObject glowstickPrefab;
     private bool glowStickThrown = false;
+    private bool canThrowGlowsticks = false;
     private float glowStickCooldown = 2f;
     private float currGlowstickTimer = 0f;
     public float glowStickThrowForce = 5f;
@@ -168,6 +169,15 @@ public class script_PlayerController : MonoBehaviour
                 script_GoalObject gObj = playerLookingAtChecker.GetLookedAtObject().GetComponent<script_GoalObject>();
                 gObj.Collect();
             }
+            else if(playerLookingAtChecker.GetLookingAt() == PlayerLookingAt.TALKABLE_NPC){
+                //playerLookingAtChecker.GetLookedAtObject().GetComponent<script_npc>().TriggerDialogue();
+            }
+            else if (playerLookingAtChecker.GetLookingAt() == PlayerLookingAt.GLOWSTICKS){
+                GameObject gObj = playerLookingAtChecker.GetLookedAtObject();
+                Destroy(gObj);
+                gameFlowManager.glowSticksCollected=true;
+                canThrowGlowsticks=true;
+            }
         }
     }
    
@@ -184,7 +194,7 @@ public class script_PlayerController : MonoBehaviour
     } 
 
     private void ThrowGlowstick(){
-        if(!glowStickThrown){
+        if(!glowStickThrown&&canThrowGlowsticks){
 
             GameObject glowstick = Instantiate(glowstickPrefab,playerHands.transform.position, this.transform.rotation);
             Rigidbody rgb = glowstick.GetComponent<Rigidbody>();

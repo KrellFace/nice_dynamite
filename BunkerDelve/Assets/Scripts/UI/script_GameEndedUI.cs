@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -12,6 +13,12 @@ public class script_GameEndedUI : MonoBehaviour
 
     private script_PlayerController controller;
 
+    public Image image;
+
+    public Sprite youDiedSprite;
+    public Sprite youWonSprite;
+
+
     private void Start() {
         controller = FindObjectOfType<script_PlayerController>();
     }
@@ -20,9 +27,11 @@ public class script_GameEndedUI : MonoBehaviour
         uiStuff.SetActive(true);
         if(won){
             tm.text = "You Escaped!";
+            image.sprite = youWonSprite;
         }
         else{
             tm.text = "You Died";
+            image.sprite = youDiedSprite;
         }
 
         controller.SetPlayerMovementAllowed(false);

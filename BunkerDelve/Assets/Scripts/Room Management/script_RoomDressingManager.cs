@@ -64,11 +64,22 @@ public class script_RoomDressingManager : MonoBehaviour
             currGoalID+=1;
             Debug.Log("Collected goal object " + id + ". Advancing in game");
             if(currGoalID >1){
-                dialogueManager.SpawnPopUp("Another photo found. One step closer");
                 audioManager.MakeDrumsMoreIntense();
             }
+            if(currGoalID==2){
+                dialogueManager.SpawnPopUp("Good... onto the next one.");
+            }
+            if(currGoalID==3){
+                dialogueManager.SpawnPopUp("Gotcha.");
+            }
+            if(currGoalID==4){
+                dialogueManager.SpawnPopUp("Moving on... I must hurry...");
+            }
+            if(currGoalID==5){
+                dialogueManager.SpawnPopUp("One more to go! Please let me make it");
+            }
             if(currGoalID ==6){
-                dialogueManager.SpawnPopUp("I think I've got a way out of here now");
+                dialogueManager.SpawnPopUp("I got them all! The exit - I need to find the exit!");
                 gameFlowManager.ChangeState(enum_GameFlowState.READY_TO_LEAVE);
 
 
