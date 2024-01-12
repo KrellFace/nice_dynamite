@@ -25,7 +25,7 @@ public class script_RoomDressingManager : MonoBehaviour
     private int currGoalID;
 
     //FIXED VARIABLES
-    public float goalObjectChance = 0.9f;
+    public float goalObjectChance = 0.2f;
 
     void Start()
     {

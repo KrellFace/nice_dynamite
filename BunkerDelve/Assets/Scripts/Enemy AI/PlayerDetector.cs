@@ -17,6 +17,8 @@ public class PlayerDetector : MonoBehaviour
 
     public Path path;
 
+
+
     public float threatLevel = 0;
     private float threatLevelMax = 20;
     private float threatLevelIncreaseTimer = 0;
@@ -27,14 +29,17 @@ public class PlayerDetector : MonoBehaviour
     private float despawnTimer = 0f;
     private float respawnTimer = 0f;
 
-    public float speed = 2;
-    public float rotationSpeed = 2f;
 
     public float nextWaypointDistance = 3;
 
     private int currentWaypoint = 0;
 
     public bool reachedEndOfPath;
+
+    [Header("Features to Configure")]
+    public float speed = 2;
+    public float rotationSpeed = 2f;
+    public float timeToRespawn = 15f;
 
     public void Start () {
         seeker = GetComponent<Seeker>();
@@ -109,7 +114,7 @@ public class PlayerDetector : MonoBehaviour
         //Spawn enemy in after set delay
         if(enemyActive&&!spawnedIn){
             respawnTimer += Time.deltaTime;
-            if(respawnTimer >= 15f)
+            if(respawnTimer >= timeToRespawn)
             {
                 SpawnEnemy();
                 respawnTimer = 0f;
