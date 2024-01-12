@@ -1741,7 +1741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4853794000079425815, guid: 6eb101679762293419181a153520181e, type: 3}
       propertyPath: gameStateTriggered
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8054339566350144685, guid: 6eb101679762293419181a153520181e, type: 3}
       propertyPath: m_Size.y

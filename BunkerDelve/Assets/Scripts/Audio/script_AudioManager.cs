@@ -12,6 +12,10 @@ public class script_AudioManager : MonoBehaviour
     public float maxDrumsVolume = 0.1f;
     private float drumsIntensity = 0f;
 
+    public AudioSource menuMusic;
+    public AudioSource gameMusic;
+    public AudioSource gameMusicDrums;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,5 +44,9 @@ public class script_AudioManager : MonoBehaviour
         drumsIntensity+=0.05f;
         Debug.Log("Drums intensity: " + drumsIntensity);
         musicDrumsLayer.volume = Mathf.Min(drumsIntensity, maxDrumsVolume);
+    }
+
+    public void StartGameMusic(){
+        
     }
 }
