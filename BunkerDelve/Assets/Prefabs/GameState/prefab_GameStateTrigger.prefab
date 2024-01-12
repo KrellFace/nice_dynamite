@@ -75,4 +75,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d6a458fc8ac0748a4989a6f0f96bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStateTriggered: 1
+  gameStateTriggered: 5
