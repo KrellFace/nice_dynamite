@@ -64,6 +64,7 @@ public class script_PlayerController : MonoBehaviour
     public GameObject glowstickPrefab;
     private bool glowStickThrown = false;
     private bool canThrowGlowsticks = false;
+    private bool firstThrow = true;
     private float glowStickCooldown = 2f;
     private float currGlowstickTimer = 0f;
     public float glowStickThrowForce = 5f;
@@ -202,6 +203,11 @@ public class script_PlayerController : MonoBehaviour
             rgb.AddForce(this.transform.forward*glowStickThrowForce);
             audioManager.PlayGlowstickCrack();
             glowStickThrown=true;
+
+            if(firstThrow){
+                gameFlowManager.ChangeState(enum_GameFlowState.PHOTO_PICKUP);
+                firstThrow=false;
+            }
         }
 
     }

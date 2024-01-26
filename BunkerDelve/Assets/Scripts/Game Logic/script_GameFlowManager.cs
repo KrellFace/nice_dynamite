@@ -26,19 +26,20 @@ public class script_GameFlowManager : MonoBehaviour
     private GameObject photoPopUp = null;
 
     //INTRO TEXT OBJECTS
-    public GameObject introSpotLight;
+    public script_Spotlight introSpotLight;
 
     //GLOW STICKS 
-    public bool glowSticksCollected;
+    public bool glowSticksCollected = false;
     public bool glowSticksDialogueOver;
 
     public bool firstPhotoCollected;
     public bool firstPhotoDialogueOver;
+    public script_Spotlight firstPhotoLight;
 
 
 
     //READY TO DECEND OBJECTS
-    public GameObject trapDoorSpotLight;
+    public script_Spotlight trapDoorSpotLight;
 
 
     // Start is called before the first frame update
@@ -54,12 +55,12 @@ public class script_GameFlowManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(glowSticksCollected&&glowSticksDialogueOver){
-            ChangeState(enum_GameFlowState.PHOTO_PICKUP);
+        if(glowSticksCollected&&currState == enum_GameFlowState.GLOWSTICKS_READY){
+            ChangeState(enum_GameFlowState.GLOWSTICKS_TUTORIAL);
         }
 
-        if(firstPhotoCollected&&firstPhotoDialogueOver){
-            ChangeState(enum_GameFlowState.READY_TO_DECEND);
+        if(firstPhotoCollected&&firstPhotoDialogueOver&&currState == enum_GameFlowState.PHOTO_PICKUP){
+            ChangeState(enum_GameFlowState.FINAL_INTRO_CHAT);
         }
     }
 
@@ -67,28 +68,43 @@ public class script_GameFlowManager : MonoBehaviour
         if(currState == enum_GameFlowState.START&&flowState ==enum_GameFlowState.INTRO_TEXT){
             currState = enum_GameFlowState.INTRO_TEXT;
             dialogueManager.playingIntro = true;
-            introSpotLight.SetActive(true);
+            introSpotLight.SwitchLightState(true, 0.5f);
         }
-        else if(currState == enum_GameFlowState.INTRO_TEXT&&flowState ==enum_GameFlowState.GLOWSTICK_PICKUP){
-            currState = enum_GameFlowState.GLOWSTICK_PICKUP;
+        else if(currState == enum_GameFlowState.INTRO_TEXT&&flowState ==enum_GameFlowState.GLOWSTICKS_READY){
+            currState = enum_GameFlowState.GLOWSTICKS_READY;
+            glowsticks.SetActive(true);
+            introSpotLight.SwitchLightState(false, 0f);
+
+        }
+        else if(currState == enum_GameFlowState.GLOWSTICKS_READY&&flowState ==enum_GameFlowState.GLOWSTICKS_TUTORIAL){
+            currState = enum_GameFlowState.GLOWSTICKS_TUTORIAL;
             glowsticks.SetActive(true);
             dialogueManager.playingGlowSticks = true;
             Debug.Log("Ready to pick up glowsticks");
 
         }
-        else if(currState == enum_GameFlowState.GLOWSTICK_PICKUP&&flowState ==enum_GameFlowState.PHOTO_PICKUP){
+        else if(currState == enum_GameFlowState.GLOWSTICKS_TUTORIAL&&flowState ==enum_GameFlowState.PHOTO_PICKUP){
             currState = enum_GameFlowState.PHOTO_PICKUP;
             firstPhoto.SetActive(true);
+            firstPhotoLight.SwitchLightState(true, 0.5f);
             dialogueManager.playingPhotoTut = true;
             //dialogueManager.SpawnPopUp("I feel a profound sense of dread, but I guess there is no other choice. Down I go");
             Debug.Log("Ready to First photo");
 
         }
-        else if(currState == enum_GameFlowState.PHOTO_PICKUP&&flowState ==enum_GameFlowState.READY_TO_DECEND){
-            currState = enum_GameFlowState.READY_TO_DECEND;
-            introSpotLight.SetActive(false);
-            trapDoorSpotLight.SetActive(true);
+        else if(currState == enum_GameFlowState.PHOTO_PICKUP&&flowState ==enum_GameFlowState.FINAL_INTRO_CHAT){
+            currState = enum_GameFlowState.FINAL_INTRO_CHAT;
+            trapDoorSpotLight.SwitchLightState(true, 0.5f);
+            firstPhotoLight.SwitchLightState(false, 0f);
             dialogueManager.playingReadyToD = true;
+            //dialogueManager.SpawnPopUp("I feel a profound sense of dread, but I guess there is no other choice. Down I go");
+            Debug.Log("Ready to Decend");
+
+        }
+        else if(currState == enum_GameFlowState.FINAL_INTRO_CHAT&&flowState ==enum_GameFlowState.READY_TO_DECEND){
+            currState = enum_GameFlowState.READY_TO_DECEND;
+            introSpotLight.SwitchLightState(false, 0f);
+            trapDoorSpotLight.SwitchLightState(true, 0.5f);
             trapdoor.OpenTrapdoor();
             //dialogueManager.SpawnPopUp("I feel a profound sense of dread, but I guess there is no other choice. Down I go");
             Debug.Log("Ready to Decend");
@@ -96,7 +112,7 @@ public class script_GameFlowManager : MonoBehaviour
         }
         else if(currState == enum_GameFlowState.READY_TO_DECEND&&flowState ==enum_GameFlowState.INITIAL_HUNT){
             currState = enum_GameFlowState.INITIAL_HUNT;
-            trapDoorSpotLight.SetActive(false);
+            trapDoorSpotLight.SwitchLightState(false, 0f);
             Debug.Log("Entered dungeon");
         }
         else if(currState == enum_GameFlowState.INITIAL_HUNT&&flowState ==enum_GameFlowState.PERSUED){

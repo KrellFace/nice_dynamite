@@ -46,7 +46,7 @@ public class script_RoomManager : MonoBehaviour
     
     public void RoomTransition(enum_Directions direction, script_Room exitedRoom){
         roomsVisited+=1;
-        if(roomsVisited>10 && !persuitStarted){
+        if(roomsVisited>6 && !persuitStarted){
             gameFlowManager.ChangeState(enum_GameFlowState.PERSUED);
             
             persuitStarted=true;

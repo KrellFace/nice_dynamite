@@ -251,6 +251,134 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &73263782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73263783}
+  - component: {fileID: 73263784}
+  m_Layer: 0
+  m_Name: Spotlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73263783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73263782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 444361303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &73263784
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73263782}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7367553777500188479, guid: a95364b9c26e19b4f9829f365bf24820, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 924615e88f1517a40985a87939ef6c87, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &97487939
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +829,11 @@ MonoBehaviour:
   - {fileID: 1637310239}
   glowStickCrack: {fileID: 18690990}
   musicDrumsLayer: {fileID: 350663883}
+  spotLightOn: {fileID: 73263784}
   maxDrumsVolume: 0.1
+  menuMusic: {fileID: 0}
+  gameMusic: {fileID: 1932176642}
+  gameMusicDrums: {fileID: 350663883}
 --- !u!4 &444361303
 Transform:
   m_ObjectHideFlags: 0
@@ -719,6 +851,7 @@ Transform:
   - {fileID: 2055239880}
   - {fileID: 18690989}
   - {fileID: 1422869117}
+  - {fileID: 73263783}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &458696334 stripped
@@ -773,8 +906,8 @@ MonoBehaviour:
   - '"Go on, try one! Just pick them up by pressing E."'
   glowStickTutorialText:
   - You can throw one to illuminate the darkness with Left Click
-  - '"Wonderful. You''re a natural at this, aren''t you. I''m sure you will do great."'
   photoTutorialText:
+  - '"Wonderful. You''re a natural at this, aren''t you. I''m sure you will do great."'
   - '"Once I finish this introduction, you will explore a series of rooms. Your mission
     is to find a series of photographs, that will help you piece together the mystery
     of Caldlow."'
@@ -944,6 +1077,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589740720}
   m_CullTransparentMesh: 1
+--- !u!114 &625106618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7121423552155054442, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+  m_PrefabInstance: {fileID: 8159794940241917196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9beb0fd8f899e3444bffdbca43e8a465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &752090166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1756,12 +1900,13 @@ MonoBehaviour:
   uiCanvas: {fileID: 1971161135}
   glowsticks: {fileID: 8159794940241917197}
   firstPhoto: {fileID: 421411182}
-  introSpotLight: {fileID: 1723986189}
+  introSpotLight: {fileID: 1723986192}
   glowSticksCollected: 0
   glowSticksDialogueOver: 0
   firstPhotoCollected: 0
   firstPhotoDialogueOver: 0
-  trapDoorSpotLight: {fileID: 2011036254}
+  firstPhotoLight: {fileID: 625106618}
+  trapDoorSpotLight: {fileID: 2011036257}
 --- !u!1 &1125170753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,11 +2497,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d71e4776ebaf7146a1a796ec721c624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1723986189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 68348103298125402, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+--- !u!114 &1723986192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8834855946638641114, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
   m_PrefabInstance: {fileID: 8159794940241917196}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9beb0fd8f899e3444bffdbca43e8a465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1824703085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2817,11 +2968,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2655228946247633716, guid: 2ce4af5178e964f79b18bce99fa5fa4d, type: 3}
   m_PrefabInstance: {fileID: 2117074314}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2011036254 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8659097426152805058, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+--- !u!114 &2011036257 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7900414300737339452, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
   m_PrefabInstance: {fileID: 8159794940241917196}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9beb0fd8f899e3444bffdbca43e8a465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2015201623
 GameObject:
   m_ObjectHideFlags: 0
@@ -3247,6 +3404,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 68348103298125402, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231865660814979565, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1240136857022012260, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
@@ -3297,6 +3458,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4300200289637749978, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253009989890160643, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404171534476309183, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830979498328135860, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00756
+      objectReference: {fileID: 0}
     - target: {fileID: 8316281080401311636, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3307,7 +3484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8659097426152805058, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9006805368803623127, guid: 1645b11774263974f8da87acd5558e2f, type: 3}
       propertyPath: m_IsActive

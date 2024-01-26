@@ -15,9 +15,9 @@ public class script_DialoguePopup : MonoBehaviour
     private float currYLoc = 0f;
 
     private float slideInTime = 0.25f;
-    private float characterAppearTime = 0.001f;
+    private float characterAppearTime = 0.01f;
 
-    private float hangTime = 3f;
+    public float hangTimePerChar = 0.06f;
 
     //DYNAMIC VARAIBLES
     private enum_DialogueState state;
@@ -54,7 +54,7 @@ public class script_DialoguePopup : MonoBehaviour
         }
         else if(state == enum_DialogueState.HOLDING){
             timer+=Time.deltaTime;
-            if(timer>hangTime){
+            if(timer>(hangTimePerChar*textToBind.Length)){
                 state = enum_DialogueState.SLIDING_OUT;
                 timer = 0f;
             }

@@ -9,12 +9,14 @@ public class script_AudioManager : MonoBehaviour
     public AudioSource glowStickCrack;
 
     public AudioSource musicDrumsLayer;
+    public AudioSource spotLightOn;
     public float maxDrumsVolume = 0.1f;
     private float drumsIntensity = 0f;
 
     public AudioSource menuMusic;
     public AudioSource gameMusic;
     public AudioSource gameMusicDrums;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,10 @@ public class script_AudioManager : MonoBehaviour
 
     public void PlayGlowstickCrack(){
         glowStickCrack.Play(0);
+    }
+
+    public void PlaySpotlightOn(){
+        spotLightOn.Play(0);
     }
 
     public void MakeDrumsMoreIntense(){

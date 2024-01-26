@@ -45,7 +45,7 @@ public class script_DialogueManager : MonoBehaviour
             currIntroText+=1;
             if(currIntroText>introText.Length-1){
                 playingIntro = false;
-                gameFlowManager.ChangeState(enum_GameFlowState.GLOWSTICK_PICKUP);
+                gameFlowManager.ChangeState(enum_GameFlowState.GLOWSTICKS_READY);
                 currIntroText=0;
             }
         }
@@ -78,6 +78,7 @@ public class script_DialogueManager : MonoBehaviour
             currIntroText+=1;
             if(currIntroText>readyToDescendText.Length-1){
                 playingReadyToD = false;
+                gameFlowManager.ChangeState(enum_GameFlowState.READY_TO_DECEND);
                 currIntroText=0;
             }
         }
